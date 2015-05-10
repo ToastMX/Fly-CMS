@@ -1,0 +1,58 @@
+[05-Apr-2015 11:34:34 Europe/Berlin] Hello, errors!
+[05-Apr-2015 11:34:34 Europe/Berlin] PHP Fatal error:  Call to undefined function finfo_open() in C:\xampp\htdocs\pipsweb\upload_image.php on line 32
+[05-Apr-2015 11:35:21 Europe/Berlin] Hello, errors!
+[05-Apr-2015 11:35:21 Europe/Berlin] PHP Fatal error:  Call to undefined function finfo_open() in C:\xampp\htdocs\pipsweb\upload_image.php on line 32
+[05-Apr-2015 11:47:22 Europe/Berlin] PHP Fatal error:  Call to undefined function finfo_open() in C:\xampp\htdocs\pipsweb\upload_image.php on line 20
+[05-Apr-2015 11:47:56 Europe/Berlin] PHP Warning:  error_log() expects parameter 1 to be string, array given in C:\xampp\htdocs\pipsweb\upload_image.php on line 5
+[05-Apr-2015 11:47:56 Europe/Berlin] PHP Fatal error:  Call to undefined function finfo_open() in C:\xampp\htdocs\pipsweb\upload_image.php on line 20
+[05-Apr-2015 11:48:59 Europe/Berlin] PHP Fatal error:  Call to undefined function finfo_open() in C:\xampp\htdocs\pipsweb\upload_image.php on line 20
+[05-Apr-2015 12:10:35 Europe/Berlin] PHP Notice:  Undefined index: file in C:\xampp\htdocs\pipsweb\image_list.php on line 13
+[05-Apr-2015 20:24:58 Europe/Berlin] PHP Notice:  Undefined index: file in C:\xampp\htdocs\pipsweb\upload_image.php on line 14
+[07-Apr-2015 17:28:44 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:28:44 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:30:21 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:30:21 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:32:54 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:32:54 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:33:44 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:33:44 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:34:21 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:34:21 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:35:17 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:35:17 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:36:36 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:36:36 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:38:44 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:38:44 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:42:24 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:42:24 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:42:46 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:42:46 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:51:18 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:51:18 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:52:34 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:52:34 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:53:21 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:53:21 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:53:54 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:53:54 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:54:21 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:54:21 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 17:59:38 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 17:59:38 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 18:00:04 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 18:00:04 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 18:04:51 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 18:04:51 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 18:30:34 Europe/Berlin] PHP Warning:  Creating default object from empty value in C:\xampp\htdocs\pipsweb\upload_image.php on line 40
+[07-Apr-2015 18:30:34 Europe/Berlin] PHP Fatal error:  Call to undefined method stdClass::Createthumb() in C:\xampp\htdocs\pipsweb\upload_image.php on line 44
+[07-Apr-2015 18:31:34 Europe/Berlin] PHP Warning:  Creating default object from empty value in C:\xampp\htdocs\pipsweb\upload_image.php on line 40
+[07-Apr-2015 18:31:34 Europe/Berlin] PHP Fatal error:  Call to undefined method stdClass::Createthumb() in C:\xampp\htdocs\pipsweb\upload_image.php on line 44
+[07-Apr-2015 18:33:56 Europe/Berlin] PHP Warning:  Creating default object from empty value in C:\xampp\htdocs\pipsweb\upload_image.php on line 40
+[07-Apr-2015 18:33:56 Europe/Berlin] PHP Fatal error:  Call to undefined method stdClass::Createthumb() in C:\xampp\htdocs\pipsweb\upload_image.php on line 44
+[07-Apr-2015 18:35:59 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 18:35:59 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 18:35:59 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 18:35:59 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999
+[07-Apr-2015 18:35:59 Europe/Berlin] PHP Warning:  chmod(): No such file or directory in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 998
+[07-Apr-2015 18:35:59 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, null given in C:\xampp\htdocs\pipsweb\easyphpthumbnail\PHP5\easyphpthumbnail.class.php on line 999

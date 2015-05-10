@@ -1,0 +1,876 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"append",
+				"appendTo"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"size",
+				"font-size"
+			],
+			[
+				"tra",
+				"transform"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"toggle",
+				"toggleedit"
+			],
+			[
+				"act",
+				"activePost"
+			],
+			[
+				"remo",
+				"removeAttr"
+			],
+			[
+				"set",
+				"setImgsToOptimalSize"
+			],
+			[
+				"img",
+				"imgQualitySet"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"cur",
+				"curSize"
+			],
+			[
+				"as",
+				"aspect"
+			],
+			[
+				"qu",
+				"imgQualitySet"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"too",
+				"toggleContainer"
+			],
+			[
+				"si",
+				"sizemenue"
+			],
+			[
+				"parse",
+				"parseImgSrc"
+			],
+			[
+				"src",
+				"srcparts"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"time",
+				"timeConverter"
+			],
+			[
+				"mysql_re",
+				"mysql_real_escape_string"
+			],
+			[
+				"stern",
+				"stern"
+			],
+			[
+				"image",
+				"imageRation"
+			],
+			[
+				"AC",
+				"activePost"
+			],
+			[
+				"on",
+				"onepostview"
+			],
+			[
+				"article",
+				"article-container"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"file",
+				"fileContainer"
+			],
+			[
+				"star",
+				"starlist"
+			],
+			[
+				"rome",
+				"remove"
+			],
+			[
+				"toggl",
+				"toggleClass"
+			],
+			[
+				"admin",
+				"adminMode"
+			],
+			[
+				"read",
+				"readCookie"
+			],
+			[
+				"crea",
+				"createCookie"
+			],
+			[
+				"ini",
+				"initSlideShowEventHandler"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"des",
+				"destroyLayer"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"prev",
+				"prevImg"
+			],
+			[
+				"sw",
+				"switchImg"
+			],
+			[
+				"slide",
+				"slideshowLayer"
+			],
+			[
+				"fir",
+				"firstImgSelector"
+			],
+			[
+				"has",
+				"hasClass"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"active",
+				"activeSelector"
+			],
+			[
+				"big",
+				"bigPic"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"rem",
+				"removeClass"
+			],
+			[
+				"sl",
+				"slideshowDiv"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"artic",
+				"article-text"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"pos",
+				"postObj"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 5515,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style.css",
+			"settings":
+			{
+				"buffer_size": 17394,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "script.js",
+			"settings":
+			{
+				"buffer_size": 34462,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api.php",
+			"settings":
+			{
+				"buffer_size": 1682,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "upload_image.php",
+			"settings":
+			{
+				"buffer_size": 2414,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "image_list.php",
+			"settings":
+			{
+				"buffer_size": 1403,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "delete_image.php",
+			"settings":
+			{
+				"buffer_size": 986,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Control: i",
+		"selected_items":
+		[
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"floo",
+				"Floobits - Stop Following Workspace"
+			],
+			[
+				"floobits oi",
+				"Floobits - Join Recent Workspace"
+			],
+			[
+				"fl",
+				"Floobits - Follow Workspace Changes in Split"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/pipsweb"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/pipsweb/convertAllUserImages.php",
+		"/C/xampp/htdocs/pipsweb/api.php",
+		"/C/xampp/htdocs/pipsweb/style.css",
+		"/C/xampp/htdocs/pipsweb/image_list.php",
+		"/C/xampp/htdocs/pipsweb/data_list.php",
+		"/C/xampp/htdocs/pipsweb/upload_image.php",
+		"/C/xampp/htdocs/pipsweb/security.php",
+		"/C/xampp/htdocs/pipsweb/delete_image.php",
+		"/C/xampp/htdocs/pipsweb/imagelightbox.min.js",
+		"/C/Users/pim/Desktop/index.html",
+		"/C/Users/pim/Desktop/index.php",
+		"/C/xampp/htdocs/pipsweb/.htaccess",
+		"/C/xampp/htdocs/pipsweb/php.ini",
+		"/C/xampp/htdocs/pipsweb/script.js",
+		"/C/xampp/htdocs/pipsweb/php-error.log",
+		"/C/xampp/htdocs/pipsweb/info.php",
+		"/C/xampp/htdocs/pipsweb/php.ini.url",
+		"/C/xampp/htdocs/pipsweb/index.php",
+		"/C/xampp/htdocs/pipsweb/froala_editor_1.2.6/js/plugins/lists.min.js",
+		"/C/xampp/htdocs/pipsweb/phpThumb-master/demo/phpThumb.demo.showpic.php",
+		"/C/xampp/htdocs/pipsweb/phpThumb-master/demo/phpThumb.demo.gallery.php",
+		"/C/xampp/htdocs/pipsweb/phpThumb-master/demo/readme.demos.txt",
+		"/C/xampp/htdocs/pipsweb/phpThumb-master/README.md",
+		"/C/xampp/htdocs/pipsweb/phpThumb-master/demo/phpThumb.demo.demo.php",
+		"/C/xampp/htdocs/pipsweb/froala_editor_1.2.6/js/plugins/media_manager.min.js",
+		"/C/xampp/htdocs/pipsweb/Dante-Beatrice3.jpg",
+		"/C/xampp/htdocs/pipsweb/log.txt",
+		"/C/xampp/htdocs/pipsweb/data/1428212275",
+		"/C/xampp/htdocs/pipsweb/data/1428212193",
+		"/C/xampp/htdocs/pipsweb/data/1428211932",
+		"/C/xampp/htdocs/pipsweb/data.txt",
+		"/C/xampp/htdocs/pipsweb/jquery-2.0.3.min.js",
+		"/C/xampp/htdocs/pipsweb/data/1428137449",
+		"/C/Users/pim/AppData/Local/Temp/fz3temp-1/1428137017",
+		"/C/Users/pim/Desktop/Sublime Text Build 3083 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Users/pim/Desktop/Sublime Text Build 3083 x64/Data/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/pim/floobits/ToastMX/JSJSJS/index.html",
+		"/C/Users/pim/floobits/welcome.md"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"destroy",
+			"a#togglerawedit",
+			"hover",
+			"togglerawedit",
+			"reset",
+			"initSlideShowEventHandler",
+			"setImgsToOptimalSize",
+			"255",
+			"whitefont",
+			"color",
+			"255",
+			"toggleEdit",
+			"255",
+			"0",
+			"sterntitel",
+			"togglehistory",
+			"toggleedit",
+			"editMode",
+			"parseImgSrc",
+			";\n",
+			"\",",
+			"files",
+			";\n",
+			"files",
+			"openIframe",
+			"enlargeIframe",
+			"setActive",
+			"imgQualitySet",
+			"load",
+			"setSize",
+			"size",
+			"imgQualitySet",
+			";\n",
+			"setImgsToThumbnail",
+			"old",
+			"'\"",
+			"original",
+			"data",
+			"old",
+			"div.historylink",
+			"historylink",
+			"user_uploads",
+			"file",
+			"files",
+			"filelink",
+			"historys",
+			"file",
+			"img.stern",
+			"setAct",
+			"slideshow",
+			"original/",
+			"original",
+			"$s",
+			"$large",
+			"$thumb",
+			"thumb",
+			"upload",
+			"uploa",
+			"upla",
+			"save",
+			"close",
+			"toggle",
+			"setAc",
+			"img.stern",
+			"movestar",
+			"save",
+			"img.stern",
+			"slideshow",
+			".article-container",
+			"ratio",
+			"razo",
+			"ratio set",
+			".css",
+			"widthArticle",
+			"setSymbolWidth",
+			"savePos",
+			"ave",
+			"translate",
+			"ui",
+			"draggable",
+			"transform",
+			"symbolgrö",
+			"savePos",
+			"saveBy",
+			"this",
+			"ratio:",
+			"setSymbolWidth",
+			"moveStar",
+			"setSymbolWidth",
+			"moveStars",
+			"SHOWPOST",
+			"SHOW",
+			"move",
+			"move(",
+			"move",
+			"widthArticle",
+			");\n",
+			"width",
+			"sternpost",
+			"savePos",
+			"save",
+			"saveBy",
+			"mono",
+			"img",
+			"{img: img}",
+			"data",
+			"event",
+			"var img = $(this).parents(\".stern-post\").children(\"img.stern\");",
+			"function",
+			"block",
+			"0",
+			"edit",
+			"onepostview",
+			"dragga",
+			"ifram",
+			"article-text",
+			"construct",
+			"removeSlideShowEventHandler",
+			"stern-post",
+			"transform",
+			"each",
+			"adminLogin",
+			"255",
+			"attr('src')",
+			"attr(\"src\")",
+			".attr(\"src\")",
+			"file",
+			"#file"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			".",
+			"Ö",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3459,
+								3459
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 574.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15189,
+								15189
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8595.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "script.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28588,
+								28588
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9875.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "api.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "upload_image.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								644,
+								644
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 67.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "image_list.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								492,
+								492
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "delete_image.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 986,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"colorcode": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "pipsweb.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\xampp\\htdocs\\pipsweb\\sublimeproect.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
