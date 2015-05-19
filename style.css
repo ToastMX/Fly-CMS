@@ -28,7 +28,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: normal;   line-height: 140%; }
 div.stern-post {
     position: fixed;
     transition: 1.5s;
-    z-index: 80;
+    /*z-index: 80;*/
 }
 
 img.stern {
