@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"old",
+				"oldImg"
+			],
+			[
 				"append",
 				"appendTo"
 			],
@@ -267,7 +271,7 @@
 			"file": "script.js",
 			"settings":
 			{
-				"buffer_size": 34462,
+				"buffer_size": 34604,
 				"line_ending": "Windows"
 			}
 		},
@@ -416,6 +420,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"img",
+			"width",
+			"setSymbolWidth",
 			"destroy",
 			"a#togglerawedit",
 			"hover",
@@ -540,10 +547,7 @@
 			"adminLogin",
 			"255",
 			"attr('src')",
-			"attr(\"src\")",
-			".attr(\"src\")",
-			"file",
-			"#file"
+			"attr(\"src\")"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -564,7 +568,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -635,29 +639,30 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 34462,
+						"buffer_size": 34604,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28588,
-								28588
+								14648,
+								14648
 							]
 						],
 						"settings":
 						{
 							"colorcode": true,
+							"forcecolorcode": false,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9875.0,
+						"translation.y": 5125.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -673,8 +678,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								6,
+								6
 							]
 						],
 						"settings":
@@ -688,7 +693,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{

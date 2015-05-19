@@ -89,7 +89,7 @@ div.stern-post div.article-container {
 div.article-text {
     line-height: 160%;
     font-size: 18px;
-    font-family: "freight-text-pro", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: verdana;
 }
 div.article-text a {
     color: #B12525;

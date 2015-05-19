@@ -126,7 +126,7 @@ function showPost(id) {
     $("body").addClass("onepostview").removeClass("overview");
     moveStars(true);
     post.setActive();
-    document.title = id + " - Lelia Fidealia";
+    document.title = post.data.title + " - Lelia Fidealia";
     return true;
 }
 
