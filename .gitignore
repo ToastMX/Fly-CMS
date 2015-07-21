@@ -1,0 +1,4 @@
+data/
+user_uploads/
+*.sublime*
+*.sublime-workspace

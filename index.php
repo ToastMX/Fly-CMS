@@ -4,6 +4,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <style id="userstyle"></style>
         <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="jquery-ui-1.11.4/jquery-ui.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
@@ -31,7 +32,7 @@
         <div id="himmel"></div>
         
         <div id="editoverview">
-            <a class="toggleEdit" href="#">edit view</a> <br>
+            <a id="toggleeditoverview" class="b1" href="#">edit view</a> <br>
             <div class="edit">
                 <a id="savePosition" href="#">Himmel speichern.</a><br>
                 <a id="newPlanet" href="#">Planet hinzufügen</a><br>
@@ -49,7 +50,6 @@
         </div>
         
         <form id="adminLogin">
-
             <input class="pw" type="password" name="adminLogin-pass">
             <input class="send" type="submit" value="Login">
             <div class="passwortinkorrekt">Passwort inkorrekt</div>
@@ -62,33 +62,49 @@
         
         <div id="admin-container">
             <div id="admin">
-                <a id="editMode" href="#">Edit Mode</a> </br>
-                <a id="serverpublish" href="#">Publish This</a>
+                <a id="toggleEditMode" class="b1" href="#">Edit Mode</a> </br>
+                <a id="toggleChanges" class="b1" href="#">no Changes</a>
+                <div id="changelog">
+                    
+                </div>
+                <a id="serverpublish" class="b1" href="#">Publish This</a>
             </div>
-            <a id="toggleadmin" href="#">a</a>
+            <a id="toggleadmin" class="b1" href="#">a</a>
         </div>
 
-        <a id="togglerawedit" href="#">raw</a>
+        <a id="togglerawedit" href="#" class="b1">raw</a>
+
+        <a id="toggleuserstyle" class="b1" href="#">css</a>
+        <div id="edituserstyle-container">
+            <div id="edituserstyle-head" class="b1">user styles</div>
+            <code id="edituserstyle" contenteditable="true"></code>
+            <a class="b1 saveEdit">save</a>
+            <a class="b1 resetEdit">reset</a>
+        </div>
 
         <div id="starlist-container" class="selectable">
-            <a id="togglestarlist" href="#">all</a>
+            <a id="togglestarlist" class="b1" href="#">all</a>
             <div id="starlist">
 
             </div>
         </div>
 
         <div id="file-container" class="selectable">
-            <a id="togglefiles" href="#">f</a>
+            <a id="togglefiles" class="b1" href="#">f</a>
             <div id="files">
                 
             </div>
         </div>
 
         <div id="history-container" class="selectable">
-            <a id="togglehistory" href="#">h</a>
+            <a id="togglehistory" class="b1" href="#">h</a>
             <div id="history">
                 
             </div>
+        </div>
+
+        <div id="templates"> 
+        
         </div>
         
         <script>
@@ -115,6 +131,7 @@
                 $data_real = json_decode($data);
                 //print_r($data);
                 echo "data = ".$data.";";
+                echo "dataCopy = ".$data.";";
 
             ?>
             

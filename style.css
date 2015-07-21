@@ -80,8 +80,8 @@ div.stern-post div.article-container {
     clear: both;
     padding: 40px 0px 0px 0px;
     max-width: 1000px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(196, 196, 196, 0.1);
+    /*background: rgba(255, 255, 255, 0.03);*/
+    /*border: 1px solid rgba(196, 196, 196, 0.1);*/
     margin: 0px 10px 30px 0px;
     z-index: 90;
 }
@@ -103,6 +103,8 @@ div.article-text a:hover {
 div.article-text img {
     max-width: 100%;
     border-radius: 0px;
+    padding: 0px 7px 7px 0px ;
+    box-sizing: border-box;
     /* margin: 3px; */
 }
 
@@ -112,7 +114,7 @@ div.article-text iframe {
     background: rgba(0,0,0,0.4);
     border-radius: 5px;
 }
-.article-text p { margin: 0 5px 10px 5px;}
+.article-text p { margin: 0 0px 10px 0px;}
 
 div.stern-post.active {
     position: absolute;
@@ -142,11 +144,14 @@ div.stern-post.active {
     font-style: normal;
     margin: 10px 40px 0px 120px;
     z-index: 90;
+    max-width: 1000px;
 }
 
 div.stern-post.active div.article-container {
     display: block;
 }
+
+
 
 img.slideshow-clickable {
     cursor: pointer;
@@ -195,37 +200,32 @@ div.slideshowLayer img.miniPreview {
     max-width: 20%;
 }
 div.slideshowLayer img.miniPreview.miniPreviewRight {   left: 100%  ;}
-div.slideshowLayer img.miniPreview.miniPreviewLeft {    left: 0%    ;}
+div.slideshowLayer img.miniPreview.miniPreviewLeft {    left: 0    ;}
 
 
 
 
 
 
-div.stern-post a.toggleEdit {
+div.stern-post a.toggleEditStar {
     position: absolute;
+    display: none;
     left: -50px;
     top: 0px;
-}
-#editoverview a.toggleEdit  {
-    position: static;
-}
-a.toggleEdit { 
-    height: auto;
-    text-align: right;
-    opacity: 0;
-    visibility: hidden;
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 4px;
-    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    font-size: 11pt;
-    color: rgba(255, 255, 255, 1);
-    background: rgba(120, 120, 120, 0.5);
-    transition: 0.2s;
     z-index: 99;
     white-space: nowrap;
+    font-size: 9pt;
+    padding: 3px 4px;
 }
+.editMode div.stern-post a.toggleEditStar {
+    display: block;
+    opacity: 0.5;
+}
+div.stern-post:hover a.toggleEditStar {
+    opacity: 1;
+}
+
+
 .edit { display: none;}
 .editMode div.showEditBox.edit {display: block;}
 
@@ -235,12 +235,12 @@ div.stern-post div.edit.symbol {
     top: 25px;
 }
 div.edit {
-    background: rgba(133, 133, 133, 0.85);
     padding: 4px;
     color: #fff;
     max-width: 200px;
     max-height: 300px;
     z-index: 99;
+    background: rgba(133, 133, 133, 0.85);
 }
 div.edit a {
     display: inline-block; padding: 1px 3px; margin: 2px 0px;
@@ -249,20 +249,7 @@ div.edit a {
     text-decoration: none;
 }
 div.edit a:hover { background: rgba(0,0,0,0.5)}
-.editMode a.toggleEdit {
-    opacity: 1;
-    visibility: visible;
-}
-a.toggleEdit:hover {
-    color: rgba(255, 255, 255, 1);
-    background: rgba(120, 120, 120, 0.9);
-    transition: 0.1s;
-}   
-a.toggleEdit:active {
-   color: rgba(255, 255, 255, 1);
-   background: rgba(120, 120, 120, 1);
-   border-right: 2px solid rgba(255, 255, 255, 0.2); 
-}
+
 .edit form {margin: 5px 0px;}
 .edit input {
     margin: 2px;
@@ -292,11 +279,12 @@ a.toggleEdit:active {
 
 #editoverview {
     position: fixed;
+    display: none;
     top: 0px;
     left: 50px;
 }
 .onepostview #editoverview { display: none;}
-.overview #editoverview { display: block; }
+.overview.editMode #editoverview { display: block; }
 #editoverview .edit form#setNewPlanetId {
     display: none;
     width: 120px;
@@ -319,6 +307,39 @@ a.toggleEdit:active {
 }
 
 
+.b1 {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 8px;
+    /* margin: 0px 0px; */
+    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    font-size: 11pt;
+    color: rgba(255, 255, 255, 0.2);
+    background: rgba(38, 38, 38, 0.4);
+    cursor: pointer;
+}
+
+.b1:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(38, 38, 38, 0.6);
+}
+
+.b1:active, .b1.active {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(38, 38, 38, 0.8);
+    box-shadow: 2px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+.b1.loading {
+    font-style: italic;
+}
+
+
+
+
+
+
+/* startbutton */
 .overview #minifooter{
     left: 0px;
 }
@@ -346,7 +367,6 @@ a.toggleEdit:active {
     color: rgba(255, 255, 255, 0.9);;
 }
 
-.admin #admin-container { display: block}
 #admin-container {
     display: block;
     position: fixed;
@@ -355,28 +375,22 @@ a.toggleEdit:active {
     text-align: left;
 }
 
-#admin-container a {
-    display: block;
-    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    color: rgba(255, 255, 255, 0.6);;
-    text-decoration: none;
-    background: rgba(149, 149, 149, 0.5);
-    display: inline-block;
-    padding: 4px 9px 5px 6px;
-    transition: 0.1s;
-}
 
 #admin {
     display: none;
-    /* padding: 10px; */
 }
-#admin-container a#toggleAdmin { 
-    font-size: 12px;
-    opacity: 0.3;
+
+#changelog {
+    width: 1px;
 }
-#admin-container a#toggleAdmin:hover { opacity: 0.8; }
-.admin #admin-container a#toggleAdmin { font-size: 16px; opacity: 0.8;}
-.admin #admin-container a#toggleAdmin:hover {opacity: 1;}
+
+#changelog div {
+    font-size: 11px;
+    padding: 3px 5px;
+    margin-left: 0px;
+}
+
+
 
 form#adminLogin {   
     background: rgba(26, 26, 26, 0.95);
@@ -461,28 +475,6 @@ form#adminLogin .closeAdminLogin {
 
 }
 
-.editorcontrol a, #admin a, #files div.filelink, #starlist a, #history a.historylink   {
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 4px;
-    /* margin: 0px 0px; */
-    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    font-size: 11pt;
-    color: rgba(255, 255, 255, 0.2);
-    background: rgba(38, 38, 38, 0.4);
-}
-.editorcontrol a:hover, #admin a:hover, #files div.filelink:hover, #starlist a:hover, #history a.historylink:hover, a#togglerawedit:hover {
-    color: rgba(255, 255, 255, 0.7);
-    background: rgba(38, 38, 38, 0.6);
-    transition: 0.1s;
-}
-.editorcontrol a:active, #admin a:active, #starlist a:active, .editMode #editMode {
-   color: rgba(255, 255, 255, 0.9);
-   background: rgba(38, 38, 38, 0.8);
-   border-right: 2px solid rgba(255, 255, 255, 0.2); 
-}
-
-
 .admin.editmode #file-container { display: block}
 #file-container {
     display: none;
@@ -490,17 +482,6 @@ form#adminLogin .closeAdminLogin {
     top: 0px;
     right: 200px;
     text-align: left;
-}
-
-#file-container a {
-    display: block;
-    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    color: rgba(255, 255, 255, 0.6);;
-    text-decoration: none;
-    background: rgba(149, 149, 149, 0.2);
-    display: inline-block;
-    padding: 4px 9px 5px 6px;
-    transition: 0.1s;   
 }
 
 #files {
@@ -528,6 +509,7 @@ form#adminLogin .closeAdminLogin {
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: left;
+    transition: 0s;
 }
 
 #file-container #files img {
@@ -579,17 +561,6 @@ form#adminLogin .closeAdminLogin {
     text-align: left;
 }
 
-#starlist-container a {
-    display: block;
-    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    color: rgba(255, 255, 255, 0.6);;
-    text-decoration: none;
-    background: rgba(149, 149, 149, 0.2);
-    display: inline-block;
-    padding: 4px 9px 5px 6px;
-    transition: 0.1s;
-}
-
 #starlist {
     display: none;
     /* padding: 10px; */
@@ -598,13 +569,6 @@ form#adminLogin .closeAdminLogin {
     left: -200px;
     text-align: right;
 }
-#starlist-container a#togglestarlist { 
-    font-size: 16px; 
-    opacity: 0.8;
-}
-#starlist-container a#togglestarlist:hover { opacity: 1; }
-
-
 
 
 .admin.editmode #history-container { display: block}
@@ -615,16 +579,7 @@ form#adminLogin .closeAdminLogin {
     right: 230px;
     text-align: left;
 }
-#history-container a, a#togglerawedit {
-    display: block;
-    font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    color: rgba(255, 255, 255, 0.6);;
-    text-decoration: none;
-    background: rgba(149, 149, 149, 0.2);
-    display: inline-block;
-    padding: 4px 9px 5px 6px;
-    transition: 0.1s;   
-}
+
 #history {
     display: none;
     /* padding: 10px; */
@@ -650,23 +605,14 @@ form#adminLogin .closeAdminLogin {
     color: #ff0;
 }
 
-#history-container #history img {
-    max-width: 100%;
+.admin.editmode #togglerawedit {
+    display: block;
 }
-
-#history-container a#togglehistory { 
-    font-size: 16px; 
-    opacity: 0.8;
-}
-#history-container a#togglehistory:hover { opacity: 1; }
-
-
-.editmode a#togglerawedit  {display: block;}
-a#togglerawedit {
-    position: fixed;
+#togglerawedit {
     display: none;
+    position: fixed;
     top: 0px;
-    right: 320px;
+    right: 430px;
 }
 
 .rawedit {
@@ -684,26 +630,58 @@ a#togglerawedit {
 }
 .rawedit a.rawdataitemlink {
     display: block;
-    color: #fff;
-    text-decoration: none;
     max-width: 400px;
-}
-.rawedit .rawdataitemlink:hover {
-    text-decoration: underline;
 }
 .rawedit .rawdataitem {
     max-width: 400px;
-    border: 1px solid rgb(255, 255, 255);
-    padding: 5px;
+    /*border: 1px solid rgb(255, 255, 255);*/
+    padding: 4px;
     margin: 5px 0px;
     display: none;
-    background: rgba(0,0,0,1);
+    background: rgba(0,0,0,0.8);
     color: #fff;
-    text-decoration: none;
-    border-radius: 3px;
 }
 .rawedit textarea {
     width: 100%;
+}
+
+
+#toggleuserstyle { display: none; }
+.editMode #toggleuserstyle {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 500;
+}
+
+
+#edituserstyle-container {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    min-width: 400px;
+    max-width: 800px;
+    bottom: 20px;
+    right: 20px;
+}
+#edituserstyle-container pre { margin: 0; }
+
+code#edituserstyle {
+    max-height: 600px;
+    display: block;
+    /* bottom: 0; */
+    overflow-y: auto;
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid rgba(199, 199, 199, 0.06);
+    box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 1);
+    white-space: pre;
+    background: rgba(32, 32, 32, 0.73);
+
+}
+
+.italic {
+    font-style: italic;
 }
 
 
@@ -750,6 +728,10 @@ a[href*="froala.com"] {
     color: rgba(255, 255, 255, 0.6) !important; 
 }
 
+#templates {
+    display: none;
+}
+
 
 .notice{
     position: fixed;
@@ -760,6 +742,11 @@ a[href*="froala.com"] {
     font-size: 20px;
     font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
     z-index: 140;
+}
+
+
+.hide {
+    display: none;
 }
 
 .deselect {
@@ -774,5 +761,3 @@ a[href*="froala.com"] {
     -moz-user-select: text;
     user-select: text;
 }
-
-

@@ -1,12 +1,12 @@
 /*
 TODO:
+  * sterne verändern auch größe beim Anflug
   * Embed links werden zuerst deaktiviert (display noned maybe)
   * editor text erst nach der fliege Animation ausklappen (performance)
   * seperiere Admin Mode PHP seitig aus der Datei (performance)
   * status anzeigen (data change api)
-    - wenn man den Himmel nicht gespeichert hat
-    - wenn man ein Post nicht gespeichert hat
-    - wenn es etwas zu publishen gibt und was genau
+  - nach publish die change api zurücksetzen
+  * nicht gepublishte veränderungen local speichern
   * sterntitel positionierung
   * bug: beim publishen auch date im JS anpassen
   * bug: externe imgs dürfen nicht angepasst werden
@@ -19,6 +19,7 @@ TODO:
 $( document ).ready(function() {
     console.log("document ready");
     //data = JSON.parse(data).
+
     initPage();
 });
 
@@ -31,6 +32,7 @@ function initPage() {
     firePageFromHash();
     
     //admin session:
+    // seems shitti, but every server interaction will be verified 
     setTimeout(function(){
       if (data.pass = readCookie('pass')){
         notice('login succeeded');
@@ -39,6 +41,8 @@ function initPage() {
         createCookie('pass',data.pass,1); //unsafe but what ever
       }
     },1000);
+
+    setTimeout(detectDataChanges,600);
 
     if (typeof prevtimeset != 'undefined'){ // if older version
       var date = timeConverter(prevtimeset);
@@ -57,6 +61,9 @@ var postObjects = [];
 function buildDOM(data) {
     if (data.whitefont === 'true')  { $('body').addClass('whitefont'); }
     console.log('whitefont: ', data.whitefont)
+
+    $("style#userstyle").text(data.userstyle);
+    $("code#edituserstyle").text(data.userstyle);
 
     for (var id in data.posts) {
         postObjects.push(new postObj(id));
@@ -89,7 +96,10 @@ function serverpublish(){
     // TODO: Data versioning
    $.post( "api.php", { data: json }, function( data ) {
       console.log( data ); // John
-      if (data == "SUCCESS") notice('publishing succeed');
+      if (data == "SUCCESS") {
+        originalData
+        notice('publishing succeed');
+      }
    });
 }
 
@@ -114,13 +124,23 @@ function firePageFromHash() {
     }
 }
 
+function setWinHash(id){
+  window.location.hash = "."+id;
+}
+
 var activePost; //current post Obj or false for overview
 
 function showPost(id) {
+    console.log("tryshowPost: ", id);
     var post = getPostObject(id);
     if (!post) { return false; }
-    if( activePost ) activePost.notActive();
-    $(".stern-post.active").removeClass("active");
+    if( activePost ) {
+      if (activePost == post) console.log("samesameagain");
+      
+      activePost.notActive();
+      $(".stern-post.active").removeClass("active");
+    } 
+    
     window.location.hash = "."+id;
     activePost = post;
     $("body").addClass("onepostview").removeClass("overview");
@@ -140,6 +160,7 @@ function showOverview() {
 }
 
 function moveStars(hideAussen) {
+  console.log('move', !!hideAussen);
     postObjects.forEach(function(item) {
         var pos = item.data.symbol.position;
         if (hideAussen) { pos = aussenkords(pos) }
@@ -184,6 +205,7 @@ function savePositionDataByDragDrog(){
       console.log(item.id+": "+x+"/"+y+" width:"+width);
    });
 
+   detectDataChanges();
    //save other parameters
    // var url = $("body").css("background-image","url("+url+")");
    // data.background = url;
@@ -197,13 +219,15 @@ var editMode = false;
 var adminMode = false;
 function toggleEditMode(){
     editMode = !editMode;
-    console.log("editMode");
+    console.log("editMode", editMode);
     if (editMode) {
         $("body").addClass("editMode");
+        $(".admin #toggleEditMode").addClass("active");
         if (activePost) { activePost.activateEditor()}
     }
     else {
         $("body").removeClass("editMode");
+        $(".admin #toggleEditMode").removeClass("active");
         if (activePost) { activePost.closeEditor()}
     }
 }
@@ -242,12 +266,13 @@ function adminLogin(pw) {
 }
 
 //prototpe:
+// Todo: post pattern clone
 function postObj(id){
     this.construct = function(){
          this.dom = $("<div></div>").addClass("stern-post").attr("id",this.id);
          var img = $("<img></div>").addClass("stern").attr("src","user_uploads/"+this.data.symbol.url);
          if (this.data.symbol.width) $(img).css("width",this.data.symbol.width);
-         var toggleedit = $('<a class="toggleEdit" href="#">edit stern</a>');
+         var toggleEditStar = $('<a class="toggleEditStar b1" href="#">edit stern</a>');
          var edit = $("<div></div>").addClass("edit symbol");
          edit.append('<div class="editSizeOverviewMode"><a class="bigger" href="#">bigger</a><a class="smaller" href="#">smaller</a> </div');
          edit.append('<div class="editSizeArticleMode"><a class="bigger" href="#">bigger</a><a class="smaller" href="#">smaller</a> <br> <a class="saveArticleSymbolSize" href="#">save size in article</a>  </div>');
@@ -257,21 +282,29 @@ function postObj(id){
          var titel = $("<div></div>").addClass("sterntitel").text(this.data.title);
          var textcontainer = $("<div></div>").addClass("article-container");
          textcontainer.append($("<div></div>").addClass("article-text").html(this.data.text));
-         var editorcontrol = $('<div class="editorcontrol"><a class="save" href="#">Speichern</a><br><a class="reset" href="#">Reset</a></div>');
+         var editorcontrol = $('<div class="editorcontrol"><a class="save b1" href="#">Speichern</a><br><a class="reset b1" href="#">Reset</a></div>');
          textcontainer.append(editorcontrol);
-         this.dom.append(img,toggleedit,edit,titel,textcontainer)
+         this.dom.append(img,toggleEditStar,edit,titel,textcontainer)
          $("#himmel").prepend(this.dom);
-         $("#starlist").append('<a href="#.'+this.id+'">'+this.data.title+'</a> </br>');
+         $("#starlist").append('<a class="b1" href="#.'+this.id+'">'+this.data.title+'</a> </br>');
+         // so bigger symbols will be in the background
+         this.dom.css('z-index', Math.floor(80 - this.data.symbol.width / 50) ); 
          img.click(this.id, function(e){
             if (preventClickOnStars) {return false;}   //verhindert schwierigkeiten mit draggable 
             showPost(e.data);
             return true;
          });
+         titel.click(this.id, function(e){
+            if (preventClickOnStars) {return false;}   //verhindert schwierigkeiten mit draggable 
+            showPost(e.data);
+            return true;
+          });
          $(img).one("load", function() {
             $(this).data("OriginalAspectRatio",  $(this).width() / $(this).height() );
             //console.log ("ratioSET: " + $(this).data("OriginalAspectRatio") );
             }).each(function() { if(this.complete) $(this).load();  }); //important if image is cached
-         toggleedit.click(this, function(e){ event.preventDefault();
+         toggleEditStar.click(this, function(e){ event.preventDefault();
+            $(this).toggleClass("active");
              $(this).siblings(".edit.symbol").toggleClass("showEditBox");
              var stern = e.data.dom.children("img.stern");
              if (e.data.active && editMode && $(this).siblings(".edit.symbol").is(":visible") ) { 
@@ -291,7 +324,6 @@ function postObj(id){
                 stern.draggable("destroy");
               }
              }
-             
          });
          this.dom.find(".editSizeOverviewMode .bigger").click({img: img}, function(event){ event.preventDefault();
             img = event.data.img;
@@ -316,9 +348,10 @@ function postObj(id){
             var y = stern.css("top");
             var x = stern.css("left");
             sternpost.data.symbol.positionArticle = [x,y];
+
             console.log( [x,y] );
             notice("Symbol im Articleview gespeichert");
-            console.log(sternpost.data);
+            detectDataChanges();
          });
          this.dom.children(".edit.symbol").children("form.editPosi").submit(this, function(event){ event.preventDefault();
             var post = event.data;
@@ -332,6 +365,7 @@ function postObj(id){
             var url = $(this).children(".newImgLink").val();
             post.data.symbol.url = url;
             post.dom.find("img.stern").attr("src","user_uploads/"+url);
+            detectDataChanges();
          });
          this.dom.children(".edit.symbol").children(".deletePage").click(this, function(event){event.preventDefault();
             var post = event.data;          
@@ -341,6 +375,7 @@ function postObj(id){
             postObjects.splice(postObjects.indexOf(post),1); // from obect array
             console.log('delete');
             notice('deleted');
+            detectDataChanges();
             showOverview();
          });
          
@@ -354,19 +389,10 @@ function postObj(id){
              var post = event.data;
              post.resetArticle();
          });
-          $(this.dom).draggable({
-             delay: 100,
-             cancel: ".sterntitel, .article-container, .edit",
-             scroll: false,
-             start: function( event, ui ) {
-                 preventClickOnStars = true;  
-                 },
-             stop: function( event, ui ) {
-                 setTimeout(function(){preventClickOnStars=false},100);
-                 updateStarPositionToRelativ();
-             }
-          });
-          this.initSlideShowEventHandler();
+         this.makeItDraggable();
+         this.initSlideShowEventHandler();
+
+         console.log("constructed ", this.id);
     }
     this.dom;
     this.id = id;
@@ -445,8 +471,28 @@ function postObj(id){
             "left": x+"%"
         });
     }
-    
+
+    this.makeItDraggable = function() {
+      $(this.dom).draggable({
+         delay: 100,
+         cancel: ".sterntitel, .article-container, .edit, .activeEditor, .froala-editor, .froala-overlay",
+         scroll: false,
+         start: function( event, ui ) {
+             preventClickOnStars = true;  
+             },
+         stop: function( event, ui ) {
+             setTimeout(function(){preventClickOnStars=false},100);
+             updateStarPositionToRelativ();
+         }
+      });
+    }
+
+    this.destroyDraggable = function() {
+      $(this.dom).draggable("destroy");
+    }
+
     this.activateEditor = function (){
+      this.dom.addClass("activeEditor");
       this.dom.children(".sterntitel").attr("contenteditable","true");
       $(this.dom.find(".article-text")).editable({
           inlineMode: true,
@@ -457,27 +503,58 @@ function postObj(id){
                     "formatBlock", "blockStyle", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent",
                     "sep",
                     "createLink", "insertImage", "insertVideo", "insertHorizontalRule", "undo","redo", "html"],
-           imageUploadURL: './upload_image.php',
-           imageUploadParams: {pass: data.pass}, 
-           imagesLoadURL: './image_list.php',
-           imagesLoadParams: {pass: data.pass}, 
-           imageDeleteURL: "./delete_image.php",
-           imageDeleteParams: {pass: data.pass}, 
-           maxFileSize: 1024 * 1024 * 300
-      }).on('editable.imageError', function (e, editor, error) {
+          imageLink: true,
+          imageUploadURL: './upload_image.php',
+          imageUploadParams: {pass: data.pass}, 
+          imagesLoadURL: './image_list.php',
+          imagesLoadParams: {pass: data.pass}, 
+          imageDeleteURL: "./delete_image.php",
+          imageDeleteParams: {pass: data.pass}, 
+          maxFileSize: 1024 * 1024 * 300,
+          // Set image buttons, including the name
+          // of the buttons defined in customImageButtons.
+          imageButtons: ['display', 'align', 'linkImage', 'replaceImage',  'magicsize', 'removeImage'],
+
+          // Define custom image buttons.
+          customImageButtons: {
+            magicsize: {
+              title: 'Size Magic',
+              icon: {
+                type: 'font',
+                value: 'fa fa-arrows-h'
+              },
+              callback: function ($img){
+                var w = $img.attr('width');
+                var setw;
+                if (w == "100%") setw = "50%";
+                else if (w == "50%") setw = "33%";
+                else if (w == "33%") setw = "25%";
+                else if (w == "25%") setw = "400";
+                else setw = "100%";
+                notice(setw);
+                $img.attr('width', setw);
+              }
+            }
+          }
+      })
+      .on('editable.imageError', function (e, editor, error) {
         console.log(error); 
-      }).editable("enable");
+      })
+      .editable("enable");
+
       $('a[href*="froala.com"]').parent().css({
         'z-index': '-20',
         'border-width': '0'
       });
+      this.destroyDraggable();
     }
     this.closeEditor = function () {
-         console.log("hasownproperty close")
+        this.dom.removeClass("activeEditor");
          if ($(this.dom.find(".article-text")).hasClass("froala-box")){ // ein bisschen eine Faule methode
             this.dom.children(".sterntitel").attr("contenteditable","false");
             $(this.dom.find(".article-text")).editable("destroy");
          }
+         this.makeItDraggable();
          this.removeSlideShowEventHandler();
          this.initSlideShowEventHandler();
     }
@@ -494,6 +571,7 @@ function postObj(id){
         this.activateEditor();
         console.log("saved");
         notice('saved');
+        detectDataChanges();
     }   
     this.resetArticle = function(){
         this.closeEditor();
@@ -528,7 +606,7 @@ function postObj(id){
         $(this).addClass("slideshow-clickable");
         $(this).click( function(e){     // event handler to slideshowstart
           $(this).addClass("firstImgSelector"); //marks the clicked image as the one to show first
-          var bilder = $(this).parent().find('img');
+          var bilder = $(this).parents('.article-text').find('img');
           activeSlideshow = new slideshow(bilder);
         });
       });
@@ -554,6 +632,8 @@ function newPlanet(id) {
                   };
    data.posts[id] = planet;
    postObjects.push(new postObj(id));
+   notice("neuer Planet");
+   detectDataChanges();
    showOverview();
    return getPostObject(id);
 }
@@ -634,8 +714,11 @@ function slideshow(selector){
     this.updateMiniPreviews = function(){
       $(".miniPreview").removeClass('miniPreview miniPreviewRight miniPreviewLeft');
       var active = this.dom.children("#slideshow-active-img");
-      active.next("img").addClass("miniPreview miniPreviewRight").imgQualitySet('l');;
-      active.prev("img").addClass("miniPreview miniPreviewLeft").imgQualitySet('l');;
+      active.prev("img").addClass("miniPreview miniPreviewLeft");
+      active.next("img").addClass("miniPreview miniPreviewRight");
+      //preloading next pics:
+      active.prev("img").imgQualitySet('l');
+      active.next("img").imgQualitySet('l');
     }
 
     this.destroyLayer = function(){
@@ -668,71 +751,74 @@ function oneTimeAddEventListener() {
     $(".closeAdminLogin").click(function(){ event.preventDefault();
       $("body").removeClass("adminLogin");
     });
-    $("#editMode").click(function(){
+    $("#toggleEditMode").click(function(){
         event.preventDefault();
         toggleEditMode();
-        
     });
      $("#serverpublish").click(function(){
         serverpublish();
         event.preventDefault();
     });
-   $("#editoverview a.toggleEdit").click(function(){
+   $("#editoverview #toggleeditoverview").click(function(){
       $(this).parent().children(".edit").toggleClass("showEditBox");
       event.preventDefault();
    });
-    $("#savePosition").click(function(){
-        savePositionDataByDragDrog();
-        event.preventDefault();
-    });
-    $("#newPlanet").click(function(){
-        event.preventDefault();
-        $("form#setNewPlanetId").toggle();
-    });
-    $("#blackwhitefont").click(function(){
-        event.preventDefault();
-        $("body").toggleClass("whitefont");
-        if ($('body').hasClass('whitefont')) {
-          data.whitefont = true;
-          notice('schrift weiß');
-        }
-        else  { 
-          data.whitefont = false;
-          notice('schrift schwarz');
-        }
-        
-    });
-    $("form#setNewPlanetId").submit(function(){
-        event.preventDefault();
-        var id = $(this).children("input.newPlanetId").val();
-        if ( newPlanet(id) ) $("form#setNewPlanetId").hide();
-    });
-    $("#changeBackground").click(function(){
-        event.preventDefault();
-        $("form#setNewBackground").toggle();
-    });
-    $("form#setNewBackground").submit(function(){
-        event.preventDefault();
-        var url = $(this).children("input.newBackground").val();
-        $("body").css("background-image","url("+url+")");
-        data.background = url;
-        $("form#setNewBackground").hide();
-    });
+      $("#savePosition").click(function(){
+          savePositionDataByDragDrog();
+          event.preventDefault();
+      });
+      $("#newPlanet").click(function(){
+          event.preventDefault();
+          $("form#setNewPlanetId").toggle();
+      });
+        $("form#setNewPlanetId").submit(function(){
+          event.preventDefault();
+          var id = $(this).children("input.newPlanetId").val();
+          if ( newPlanet(id) ) $("form#setNewPlanetId").hide();
+        });
+      $("#blackwhitefont").click(function(){
+          event.preventDefault();
+          $("body").toggleClass("whitefont");
+          if ($('body').hasClass('whitefont')) {
+            data.whitefont = true;
+            notice('schrift weiß');
+          }
+          else  { 
+            data.whitefont = false;
+            notice('schrift schwarz');
+          }
+          detectDataChanges();
+      });
+      $("#changeBackground").click(function(){
+          event.preventDefault();
+          $("form#setNewBackground").toggle();
+      });
+        $("form#setNewBackground").submit(function(){
+            event.preventDefault();
+            var url = $(this).children("input.newBackground").val();
+            $("body").css("background-image","url("+url+")");
+            data.background = url;
+            $("form#setNewBackground").hide();
+            detectDataChanges();
+        });
     $( "#adminLogin" ).submit(function( event ) {
-      event.preventDefault();
-      adminLogin($(this).children(".pw").val());
-   });
+        event.preventDefault();
+        adminLogin($(this).children(".pw").val());
+    });
     $("#togglefiles").click(function(){
       $("#history").hide();
       $("#files").toggle();
+      $("#togglefiles").toggleClass("active");
         if ($("#files").is(':visible')){
+          $("#togglefiles").addClass("loading");
           $.get( "image_list.php", {'pass': data.pass}, function( data ) {
-            if (data.length){ 
+            $("#togglefiles").removeClass("loading");
+            if (data.length){
               $("#files").empty();
               data.forEach(function(item) {
                 //console.log(item);
                 var fileContainer = $("<div></div>").addClass("oneImg-Container").hide();
-                var link = $('<div class="filelink">'+parseImgSrc( item , 'name')+'</div>');
+                var link = $('<div class="filelink b1">'+parseImgSrc( item , 'name')+'</div>');
                 link.css( {
                   "background-image": "url(" + parseImgSrc( item ) +")"
                 });
@@ -742,10 +828,10 @@ function oneTimeAddEventListener() {
                     if (toggleContainer.is(':empty')){
                       $('<img>').attr('src', parseImgSrc( e.data.src, 's' ) ).appendTo(toggleContainer);
                       var sizeMenue = $("<div></div>").addClass("sizemenue");
-                      sizeMenue.append('<a href="'+parseImgSrc( $(this).text(), 's' )+'" target="_blank"> S </a>');
-                      sizeMenue.append('<a href="'+parseImgSrc( $(this).text(), 'm' )+'" target="_blank"> M </a>');
-                      sizeMenue.append('<a href="'+parseImgSrc( $(this).text(), 'l' )+'" target="_blank"> L </a>');
-                      sizeMenue.append('<a href="'+parseImgSrc( $(this).text(), 'original' )+'" target="_blank"> Ori </a>');
+                      sizeMenue.append('<a class="b1" href="'+parseImgSrc( $(this).text(), 's' )+'" target="_blank"> S </a>');
+                      sizeMenue.append('<a class="b1" href="'+parseImgSrc( $(this).text(), 'm' )+'" target="_blank"> M </a>');
+                      sizeMenue.append('<a class="b1" href="'+parseImgSrc( $(this).text(), 'l' )+'" target="_blank"> L </a>');
+                      sizeMenue.append('<a class="b1" href="'+parseImgSrc( $(this).text(), 'original' )+'" target="_blank"> Ori </a>');
                       toggleContainer.append(sizeMenue);
                     }
                     toggleContainer.toggle();
@@ -760,20 +846,23 @@ function oneTimeAddEventListener() {
     });
     $("#togglestarlist").click(function(){
       $("#starlist").toggle();
+      $("#togglestarlist").toggleClass("active");
       event.preventDefault();
     });
     $("#togglehistory").click(function(){
       $("#files").hide();
       $("#history").toggle();
+      $("#togglehistory").toggleClass("active");
         if ($("#history").is(':visible')){
-          //$("#history").append('Alte speicherstände Zurückholen folgt');
+          $("#togglehistory").addClass("loading");
           $.get( "data_list.php", {'pass': data.pass}, function( postdata ) {
+            $("#togglehistory").removeClass("loading");
             if (postdata.length){
               $("#history").empty();
               postdata.forEach(function(item) {
                 //console.log(item);
                 datetime = timeConverter(item)
-                var link = $('<a class="historylink" href="?t='+item+'">'+datetime+'</a>');
+                var link = $('<a class="historylink b1" href="?t='+item+'">'+datetime+'</a>');
                 if (data.date == item) link.addClass("thisoneyouseenow"); 
                 $("#history").prepend(link);
               });
@@ -785,9 +874,11 @@ function oneTimeAddEventListener() {
 
     $("#togglerawedit").click(function(){
       if ( $(".rawedit").length > 0 ){
-         $(".rawedit").remove();
+         $(".rawedit").toggle();
+         $("#togglerawedit").toggleClass("active");
       }
       else {
+        $("#togglerawedit").addClass("active");
         var fenster = $("<div></div>").addClass("rawedit");
 
         var recursion = function(item){
@@ -801,9 +892,10 @@ function oneTimeAddEventListener() {
                   var toggle = $('<a href="#"></a>')
                     .text(key)
                     .click(function(){
+                      $(this).toggleClass("active");
                       $(this).next(".rawdataitem").toggle();
                     })
-                    .addClass("rawdataitemlink");
+                    .addClass("rawdataitemlink b1");
                   tree.append(toggle);
                   tree.append( recursion( item[key] ) );
                }
@@ -815,12 +907,40 @@ function oneTimeAddEventListener() {
         var tree = recursion(data);
         tree.show().appendTo(fenster);
         $("body").append(fenster);  
-        //console.log(recursion(data));
+        // console.log(recursion(data));
       }
       event.preventDefault();
     });
+    
+    $("#toggleuserstyle").click(function(){
+      $("#edituserstyle-container").toggle();
+      $("#toggleuserstyle").toggleClass("active");
+      event.preventDefault();
+    });
+    
+    $("#edituserstyle").on('keyup',function(e){ 
+      //console.log(e.target.innerText);
+      $("style#userstyle").text(e.target.innerText);
+    });
+    $("#edituserstyle-container").draggable({
+         delay: 0,
+         cancel: "#edituserstyle",
+         scroll: false
+    });
+    $("#edituserstyle-container .saveEdit").click(function(){
+      data.userstyle = $("style#userstyle").text();
+      notice("saved");
+      detectDataChanges();
+    });
+    $("#edituserstyle-container .resetEdit").click(function(){
+      $("style#userstyle").text(data.userstyle);
+      $("code#edituserstyle").text(data.userstyle);
+    });
+
     //if hash changes // (back bottum)
     window.onhashchange = firePageFromHash;
+
+    // console.log("fini Event Listener");
 }
 
 
@@ -899,7 +1019,59 @@ function parseImgSrc(src, size){
  
 }( jQuery ));
 
+changes = [];
+function detectDataChanges(){
 
+  //compares two objects deeply 
+  var exactChanges = [];
+  var recursCompare = function(d1, d2, path){
+    if ((typeof d1 == "object" && typeof d2 == "object" ) 
+            || ( typeof d1 != "object" && typeof d2 != "object")){
+      
+      if (typeof d1 == "string" || typeof d1 == "number" || typeof d1 == "boolean"){
+        if (d1 != d2 ) {      // true if difference
+          exactChanges.push(path);
+        }
+      }
+      if (typeof d1 == "object") {
+        for (var key in d1) {
+          if (d1.hasOwnProperty(key)) {
+            var arg = typeof path == 'undefined' ? key : path+'/'+key;
+            if (key != 'pass' ) recursCompare( d1[key], d2[key], arg );
+          }
+        }
+      }
+    }
+    else { // diffrent types on same posi
+      exactChanges.push('new item ' +path);
+    }
+  };
+  recursCompare(data, dataCopy);
+
+  exactChanges.forEach(function(item){
+    if ( item.indexOf("symbol/") != -1 ){
+      item = item.substring(0, item.indexOf("symbol/") + "symbol".length);
+    }
+    if ( item.indexOf("posts/") != -1 ){
+      item = item.substring(item.indexOf("posts/") + "posts/".length);
+    }
+    // new change?
+    if (changes.indexOf(item) == -1){
+      changes.push(item);
+      $('<div class="b1">'+item+'</div>')
+      .appendTo("div#changelog")
+      .hide()
+      .slideDown('fast');
+    }
+  });
+
+  $("a#toggleChanges").text(changes.length + " changes");
+
+  if (changes.length) $("#serverpublish").slideDown('fast');
+  else $("#serverpublish").slideUp('fast');
+
+  return changes;
+}
 
 
 
@@ -955,13 +1127,8 @@ function timeConverter(UNIX_timestamp){
   return time;
 }
 
-function plugin (){
-  this.construct = function(){
-
-  }
-  this.destroy = function(){
-
-  }
-
-  construct();
+//clone frome template
+function templ(clas){
+  var templ = $("#templates").children("."+clas);
+  return templ.clone(true); // clone with event handlers
 }
