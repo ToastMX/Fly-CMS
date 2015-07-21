@@ -26,3 +26,4 @@ http://twitter.com/ToastMX
 * override css rules with live preview
 * drag and drop Planets
 * link "planets", link between "planets" and use the back button of your browser to jump back
+* all editing power comes from Froala Editor, A beautiful WYSIWYG HTML text editor, which isnt free for commercial use.
