@@ -1,7 +1,7 @@
 # Fly CMS - alpha
 
 
-This is a completely Javascript based CMS for simple arti websites.
+This is a Javascript based single page CMS for simple artsi websites.
 
 It is inpired by the Idea tha every Site is a planet and visiters just Flying around.
 
